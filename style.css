@@ -1,0 +1,595 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+        background:
+        radial-gradient(circle at 10% 15%, rgba(65, 105, 225, 0.10) 0 35px, transparent 36px),
+        radial-gradient(circle at 90% 20%, rgba(217, 166, 166, 0.13) 0 45px, transparent 46px),
+        radial-gradient(circle at 15% 85%, rgba(65, 105, 225, 0.08) 0 50px, transparent 51px),
+        radial-gradient(circle at 88% 82%, rgba(217, 166, 166, 0.10) 0 40px, transparent 41px),
+        linear-gradient(135deg, #fffaf7, #fdf3f4, #f7f5fb);
+    color: #6b5550;
+    min-height: 100vh;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 55px 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow-y: auto;
+}
+
+.page.active {
+    display: flex;
+}
+
+.page::before {
+    content: "♡";
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #e8caca;
+    font-size: 22px;
+}
+
+.page::after {
+    content: "♡";
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    color: #e8caca;
+    font-size: 22px;
+}
+
+.page h1 {
+    max-width: 650px;
+    color: #8d6863;
+    font-size: 30px;
+    line-height: 1.4;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+}
+
+.page p {
+    max-width: 600px;
+    line-height: 1.9;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.page strong {
+    color: #9b6f6a;
+}
+
+button {
+    border: 1px solid #d9aaaa;
+    background: #d9a6a6;
+    color: white;
+    padding: 14px 27px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: 0 6px 18px rgba(150, 100, 100, 0.12);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.love-card,
+.memory-card {
+    width: 100%;
+    max-width: 600px;
+    background: #fffafa;
+    border: 1px solid #f0dddd;
+    border-radius: 22px;
+    padding: 25px 22px;
+    margin: 12px 0;
+    box-shadow: 0 8px 25px rgba(160, 110, 110, 0.08);
+}
+
+.love-card h2,
+.memory-card h2 {
+    color: #956d68;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.love-card p,
+.memory-card p {
+    margin-bottom: 12px;
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 220px;
+    border-radius: 18px;
+    background: #f7e9e7;
+    border: 1px dashed #d9aaaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #a47a75;
+    font-size: 34px;
+    margin-bottom: 18px;
+}
+
+.photo-placeholder span {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 0 15px;
+}
+.page::marker {
+    display: none;
+}
+
+.page {
+    background-image:
+        radial-gradient(circle at 8% 12%, #4169e1 0 3px, transparent 4px),
+        radial-gradient(circle at 92% 18%, #4169e1 0 3px, transparent 4px),
+        radial-gradient(circle at 12% 88%, #4169e1 0 3px, transparent 4px),
+        radial-gradient(circle at 88% 84%, #4169e1 0 3px, transparent 4px);
+    background-repeat: no-repeat;
+}
+
+.page::before {
+    content: "✿";
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    color: #4169e1;
+    font-size: 27px;
+    opacity: 0.75;
+}
+
+.page::after {
+    content: "✿";
+    position: absolute;
+    bottom: 22px;
+    right: 20px;
+    color: #4169e1;
+    font-size: 27px;
+    opacity: 0.75;
+}
+@media (max-width: 480px) {
+    .page {
+        padding: 50px 20px;
+    }
+
+    .page h1 {
+        font-size: 27px;
+    }
+
+    .page p {
+        font-size: 15.5px;
+    }
+
+    .love-card,
+    .memory-card {
+        padding: 22px 18px;
+    }
+
+    .photo-placeholder {
+        height: 190px;
+    }
+}
+#opening {
+    background: rgba(255, 250, 247, 0.75);
+}
+
+#opening h1 {
+    font-size: 34px;
+    color: #4169e1;
+    margin-bottom: 25px;
+}
+
+#opening p {
+    font-size: 17px;
+    max-width: 500px;
+}
+
+#opening button {
+    background: #4169e1;
+    border-color: #4169e1;
+    padding: 15px 34px;
+    font-size: 16px;
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.20);
+}
+.photo-placeholder {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f9eeee, #eef0ff);
+    border: 1px solid rgba(65, 105, 225, 0.25);
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+.photo-placeholder::before {
+    content: "✿";
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #4169e1;
+    font-size: 22px;
+    opacity: 0.65;
+}
+
+.photo-placeholder::after {
+    content: "✿";
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    color: #d9a6a6;
+    font-size: 22px;
+    opacity: 0.65;
+}
+.love-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 250, 250, 0.92);
+    border: 1px solid #ead4d8;
+    box-shadow: 0 10px 30px rgba(65, 105, 225, 0.08);
+}
+
+.love-card::before {
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    color: #4169e1;
+    font-size: 20px;
+    opacity: 0.65;
+}
+
+.love-card h2 {
+    color: #4169e1;
+}
+
+.memory-card {
+    box-shadow: 0 10px 30px rgba(65, 105, 225, 0.08);
+}
+button {
+    background: linear-gradient(135deg, #4169e1, #6f86df);
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: Georgia, serif;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 22px rgba(65, 105, 225, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:hover {
+    box-shadow: 0 10px 26px rgba(65, 105, 225, 0.30);
+}
+button::before {
+    content: "♡";
+    margin-right: 8px;
+    font-size: 13px;
+}
+
+button::after {
+    content: "♡";
+    margin-left: 8px;
+    font-size: 13px;
+}
+.page {
+    position: relative;
+}
+
+.page::before {
+    content: "♥";
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #c94b5b;
+    font-size: 15px;
+    opacity: 0.55;
+}
+
+.page::after {
+    content: "♥";
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    color: #c94b5b;
+    font-size: 15px;
+    opacity: 0.55;
+}
+#opening {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#opening h1,
+#opening p,
+#opening button {
+    position: relative;
+    z-index: 2;
+}
+
+#opening h1 {
+    background: rgba(255, 255, 255, 0.72);
+    padding: 30px 25px;
+    border-radius: 28px;
+    border: 1px solid rgba(217, 166, 166, 0.35);
+    box-shadow: 0 12px 35px rgba(120, 80, 80, 0.08);
+}
+#two-years h1 {
+    color: #4169e1;
+    letter-spacing: 2px;
+}
+
+#two-years p:first-of-type {
+    color: #b06f78;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#two-years strong {
+    color: #c94b5b;
+}
+#how-it-started h1 {
+    color: #4169e1;
+    font-size: 31px;
+}
+
+#how-it-started p {
+    max-width: 560px;
+}
+
+#how-it-started p strong {
+    color: #c94b5b;
+}
+
+#how-it-started p:last-of-type {
+    font-style: italic;
+    color: #8d6863;
+}
+#distance h1 {
+    color: #4169e1;
+    letter-spacing: 2px;
+}
+
+#distance p {
+    max-width: 570px;
+}
+
+#distance p:last-of-type {
+    color: #8d6863;
+    font-style: italic;
+}
+
+#distance strong {
+    color: #c94b5b;
+}
+#things-i-love h1 {
+    color: #4169e1;
+    letter-spacing: 1.5px;
+}
+
+#things-i-love .love-card {
+    transform: translateY(0);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#things-i-love .love-card h2 {
+    color: #4169e1;
+}
+
+#things-i-love .love-card strong {
+    color: #c94b5b;
+}
+#memories h1 {
+    color: #4169e1;
+    letter-spacing: 2px;
+}
+
+#memories .memory-card {
+    background: rgba(255, 250, 250, 0.94);
+    border: 1px solid rgba(65, 105, 225, 0.18);
+}
+
+#memories .memory-card h2 {
+    color: #4169e1;
+}
+
+#memories .memory-card p {
+    color: #765e59;
+}
+
+#memories > p:last-of-type {
+    color: #c94b5b;
+    font-style: italic;
+}
+#future h1 {
+    color: #4169e1;
+    letter-spacing: 2px;
+}
+
+#future .love-card {
+    background: rgba(255, 250, 250, 0.95);
+    border-left: 3px solid #4169e1;
+}
+
+#future .love-card h2 {
+    color: #4169e1;
+}
+
+#future .love-card p {
+    color: #765e59;
+}
+
+#future > p:last-of-type {
+    color: #c94b5b;
+    font-style: italic;
+    font-size: 17px;
+}
+#one-last-thing h1 {
+    color: #4169e1;
+    letter-spacing: 2px;
+}
+
+#one-last-thing p {
+    max-width: 570px;
+}
+
+#one-last-thing p strong {
+    color: #c94b5b;
+}
+
+#one-last-thing p:nth-of-type(7) {
+    font-size: 20px;
+    line-height: 2;
+    color: #c94b5b;
+}
+
+#one-last-thing p:last-of-type {
+    font-size: 18px;
+    color: #4169e1;
+}
+#final {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(65, 105, 225, 0.08), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(217, 166, 166, 0.12), transparent 35%),
+        linear-gradient(135deg, #fffaf7, #fdf3f4);
+}
+
+#final h1 {
+    color: #4169e1;
+    font-size: 34px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+#final p {
+    font-size: 17px;
+}
+
+#final p:first-of-type {
+    color: #c94b5b;
+    font-style: italic;
+}
+
+#final p strong {
+    color: #8d6863;
+}
+
+#final button {
+    margin-top: 25px;
+}
+.memory-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+    margin-bottom: 18px;
+    border: 1px solid rgba(65, 105, 225, 0.18);
+    box-shadow: 0 8px 22px rgba(120, 80, 80, 0.10);
+}
+
+@media (max-width: 480px) {
+    .memory-photo {
+        height: 190px;
+    }
+}
+.memory-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #f7e9e7;
+    border-radius: 18px;
+    display: block;
+    margin-bottom: 18px;
+    border: 1px solid rgba(65, 105, 225, 0.18);
+    box-shadow: 0 8px 22px rgba(120, 80, 80, 0.10);
+}
+
+@media (max-width: 480px) {
+    .memory-photo {
+        height: 250px;
+    }
+}
+#reveal {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(65, 105, 225, 0.08), transparent 35%),
+        radial-gradient(circle at 80% 75%, rgba(217, 166, 166, 0.12), transparent 35%),
+        linear-gradient(135deg, #fffaf7, #fdf3f4);
+}
+
+#reveal h1 {
+    color: #4169e1;
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+#reveal p {
+    font-size: 18px;
+    color: #8d6863;
+    font-style: italic;
+    max-width: 450px;
+    margin-bottom: 30px;
+}
+#reveal-message {
+    background:
+        radial-gradient(circle at 15% 25%, rgba(217, 166, 166, 0.13), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(65, 105, 225, 0.08), transparent 35%),
+        linear-gradient(135deg, #fffaf7, #fdf3f4);
+}
+
+#reveal-message h1 {
+    color: #4169e1;
+    font-size: 30px;
+    line-height: 1.5;
+    max-width: 520px;
+    letter-spacing: 1.5px;
+}
+
+#reveal-message p {
+    font-size: 19px;
+    color: #8d6863;
+    margin-bottom: 25px;
+}
+
+#reveal-message p strong {
+    color: #c94b5b;
+    font-size: 20px;
+}
+#final h1 {
+    text-shadow: 0 2px 12px rgba(65, 105, 225, 0.12);
+}
+
+#final p:first-of-type {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+#final p strong {
+    font-size: 18px;
+}
+
+#final button {
+    margin-top: 30px;
+}
